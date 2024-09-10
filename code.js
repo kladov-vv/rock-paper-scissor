@@ -34,38 +34,38 @@ function getHumanChoice() {
     // this part makes answer case insensitive
     humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
     console.log(humanChoice);
-
-    if (humanChoice === 'rock' || humanChoice === 'paper'|| humanChoice === 'scissors') {
+    
+    if (humanChoice === 'Rock' || humanChoice === 'Paper'|| humanChoice === 'Scissors') {
         return humanChoice;
         console.log(playersChoice);
     } else {
         console.log('Invalid choice');
-        // returns 'undefined'
+        return getHumanChoice();
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-//human Choice parameter should be case-insensitive
-    switch (humanChoice) {
-        case 'rock':
-            switch (computerChoice) {
-                case 'scissors':
-                    console.log('You win! Rock beats Scissors')
-                break;
+// function playRound(humanChoice, computerChoice) {
+// //human Choice parameter should be case-insensitive
+//     switch (humanChoice) {
+//         case 'rock':
+//             switch (computerChoice) {
+//                 case 'scissors':
+//                     console.log('You win! Rock beats Scissors')
+//                 break;
 
-                case 'rock':
-                    console.log('Tie')
-                break;
+//                 case 'rock':
+//                     console.log('Tie')
+//                 break;
 
-                case 'paper':
-                    console.log('You lose! Paper beats Rock')
-                break;
-            }
-        break;
+//                 case 'paper':
+//                     console.log('You lose! Paper beats Rock')
+//                 break;
+//             }
+//         break;
 
         
-    }
+//     }
 
-}
+// }
 // playRound( getHumanChoice(), getComputerChoice() );
 
