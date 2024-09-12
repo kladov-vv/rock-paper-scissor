@@ -12,17 +12,17 @@ function getComputerChoice() {
     // this switch statement returns a computer choice depending on the generated random number
     switch(randomNum) {
         case 1:
-            return 'rock';
+            return 'Rock';
             // console.log('Rock');
             break;
 
         case 2:
-            return 'paper'; 
+            return 'Paper'; 
             // console.log('Paper');
             break;
 
         case 3:
-            return 'scissors';
+            return 'Scissors';
             // console.log('Scissors');
             break;
     }
@@ -33,8 +33,9 @@ function getHumanChoice() {
     let humanChoice = prompt('Make a choice: Rock, Paper or Scissors');
     // this part makes answer case insensitive
     humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
-    console.log(humanChoice);
+    // console.log(humanChoice);
     
+    // this part checks if answer is valid
     if (humanChoice === 'Rock' || humanChoice === 'Paper'|| humanChoice === 'Scissors') {
         return humanChoice;
         console.log(playersChoice);
@@ -43,29 +44,51 @@ function getHumanChoice() {
         return getHumanChoice();
     }
 }
+// this function plays a single round of the game
+// doesn't return anything yet
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        console.log(`Tie! You choose ${humanChoice}, but computer also choose ${computerChoice}!`);
+    } else {
+        switch(humanChoice) {
+            case 'Rock':
+                switch(computerChoice) {
+                    case 'Scissors':
+                        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+                        break;
 
-// function playRound(humanChoice, computerChoice) {
-// //human Choice parameter should be case-insensitive
-//     switch (humanChoice) {
-//         case 'rock':
-//             switch (computerChoice) {
-//                 case 'scissors':
-//                     console.log('You win! Rock beats Scissors')
-//                 break;
+                    case 'Paper':
+                        console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+                        break;
+                }
+                break;
 
-//                 case 'rock':
-//                     console.log('Tie')
-//                 break;
+            case 'Paper':
+                switch(computerChoice) {
+                    case 'Rock':
+                        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+                        break;
 
-//                 case 'paper':
-//                     console.log('You lose! Paper beats Rock')
-//                 break;
-//             }
-//         break;
+                    case 'Scissors':
+                        console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+                        break;
+                }
+                break;
 
-        
-//     }
+            case 'Scissors':
+                switch(computerChoice) {
+                    case 'Paper':
+                        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+                        break;
 
-// }
+                    case 'Rock':
+                        console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+                        break;
+                }
+                break;
+        }
+    }
+}
+
 // playRound( getHumanChoice(), getComputerChoice() );
 
