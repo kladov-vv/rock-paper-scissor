@@ -13,18 +13,12 @@ function getComputerChoice() {
     switch(randomNum) {
         case 1:
             return 'Rock';
-            // console.log('Rock');
-            break;
 
         case 2:
             return 'Paper'; 
-            // console.log('Paper');
-            break;
 
         case 3:
             return 'Scissors';
-            // console.log('Scissors');
-            break;
     }
 }
 
@@ -38,57 +32,65 @@ function getHumanChoice() {
     // this part checks if answer is valid
     if (humanChoice === 'Rock' || humanChoice === 'Paper'|| humanChoice === 'Scissors') {
         return humanChoice;
-        console.log(playersChoice);
     } else {
         console.log('Invalid choice');
         return getHumanChoice();
     }
 }
 // this function plays a single round of the game
-// doesn't return anything yet
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        console.log(`Tie! You choose ${humanChoice}, but computer also choose ${computerChoice}!`);
+        return `Tie! You choose ${humanChoice}, but computer also choose ${computerChoice}!`;
     } else {
+        function winRound() {
+            humanScore = ++humanScore
+            return `You win! ${humanChoice} beats ${computerChoice}!`;
+        }
+        
+        function loseRound() {
+            computerScore = ++computerScore
+            return `You lose! ${computerChoice} beats ${humanChoice}!`;
+        }
+        
         switch(humanChoice) {
             case 'Rock':
                 switch(computerChoice) {
                     case 'Scissors':
-                        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
-                        break;
+                        return winRound();
 
                     case 'Paper':
-                        console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
-                        break;
+                        return loseRound();
                 }
-                break;
 
             case 'Paper':
                 switch(computerChoice) {
                     case 'Rock':
-                        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
-                        break;
+                        return winRound();
 
                     case 'Scissors':
-                        console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
-                        break;
+                        return loseRound();
                 }
-                break;
 
             case 'Scissors':
                 switch(computerChoice) {
                     case 'Paper':
-                        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
-                        break;
+                        return winRound();
 
                     case 'Rock':
-                        console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
-                        break;
+                        return loseRound();
                 }
-                break;
         }
     }
 }
 
-// playRound( getHumanChoice(), getComputerChoice() );
+// this function plays a 5 round of the game
+function playGame() {
+    playRound( getHumanChoice(), getComputerChoice() );
+    console.log('Hi!');
+    // if (computerScore === 5 || humanScore === 5) {
+    //     console.log('Fin');
+    // } else {
+    //     return playGame();
+    // } 
+}
 
