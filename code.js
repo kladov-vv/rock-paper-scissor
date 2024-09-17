@@ -1,6 +1,7 @@
 console.log('Hello world!');
 let computerScore = 0;
 let humanScore = 0;
+let roundTimer = 1;
 
 // this function generates a computer choice
 function getComputerChoice() {
@@ -40,16 +41,16 @@ function getHumanChoice() {
 // this function plays a single round of the game
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        return `Tie! You choose ${humanChoice}, but computer also choose ${computerChoice}!`;
+        return `Tie! You choose ${humanChoice}, but computer also choose ${computerChoice}! Score: ${humanScore} - ${computerScore}`;
     } else {
         function winRound() {
             humanScore = ++humanScore
-            return `You win! ${humanChoice} beats ${computerChoice}!`;
+            return `You win! ${humanChoice} beats ${computerChoice}! Score: ${humanScore} - ${computerScore}`;
         }
         
         function loseRound() {
             computerScore = ++computerScore
-            return `You lose! ${computerChoice} beats ${humanChoice}!`;
+            return `You lose! ${computerChoice} beats ${humanChoice}! Score: ${humanScore} - ${computerScore}`;
         }
         
         switch(humanChoice) {
@@ -85,12 +86,25 @@ function playRound(humanChoice, computerChoice) {
 
 // this function plays a 5 round of the game
 function playGame() {
-    playRound( getHumanChoice(), getComputerChoice() );
-    console.log('Hi!');
-    // if (computerScore === 5 || humanScore === 5) {
-    //     console.log('Fin');
-    // } else {
-    //     return playGame();
-    // } 
+    if (roundTimer <= 5) {
+        console.log (`Round ${roundTimer}`);
+        let roundResult = playRound( getHumanChoice(), getComputerChoice() );
+        console.log(roundResult)
+        roundTimer = ++roundTimer;
+        return playGame();
+    } else {
+        return;
+    } 
 }
+    // if (humanScore === computerScore) {
+    //     console.log('tie');
+    //     return 'tie!!!';
+    // } else if (humanScore > computerScore) {
+    //     console.log('win');
+    //     return 'win!!!';
+    // } else {
+    //     console.log('lose');
+    //     return 'lose!!!';
+    // };    
 
+playGame();
