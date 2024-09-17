@@ -98,19 +98,11 @@ function playGame() {
     } else if (humanScore === computerScore) {
         return 'Tie!';
     } else if (humanScore > computerScore) {
-        return 'win!!!';
+        return 'You win the game!';
     } else {
-        return 'lose!!!';
+        return 'You lose the game!';
     };    
 }
 
-let num = 0
-function test() {
-    if (num < 4) {
-        num = ++num;
-        console.log(num);
-        return test();
-    } else {
-        return 'fin';
-    }
-}
+let game = playGame();
+console.log(game);
