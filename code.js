@@ -41,16 +41,19 @@ function getHumanChoice() {
 // this function plays a single round of the game
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        return `Tie! You choose ${humanChoice}, but computer also choose ${computerChoice}! Score: ${humanScore} - ${computerScore}`;
+        return `Tie! Between ${computerChoice} and ${computerChoice}. 
+        Score: You: ${humanScore} - Computer: ${computerScore}`;
     } else {
         function winRound() {
             humanScore = ++humanScore
-            return `You win! ${humanChoice} beats ${computerChoice}! Score: ${humanScore} - ${computerScore}`;
+            return `You win! ${humanChoice} beats ${computerChoice}! 
+            Score: You: ${humanScore} - Computer: ${computerScore}`;
         }
         
         function loseRound() {
             computerScore = ++computerScore
-            return `You lose! ${computerChoice} beats ${humanChoice}! Score: ${humanScore} - ${computerScore}`;
+            return `You lose! ${computerChoice} beats ${humanChoice}! 
+            Score: You: ${humanScore} - Computer: ${computerScore}`;
         }
         
         switch(humanChoice) {
@@ -86,25 +89,28 @@ function playRound(humanChoice, computerChoice) {
 
 // this function plays a 5 round of the game
 function playGame() {
-    if (roundTimer <= 5) {
+    if (roundTimer < 6) {
         console.log (`Round ${roundTimer}`);
         let roundResult = playRound( getHumanChoice(), getComputerChoice() );
         console.log(roundResult)
         roundTimer = ++roundTimer;
         return playGame();
+    } else if (humanScore === computerScore) {
+        return 'Tie!';
+    } else if (humanScore > computerScore) {
+        return 'win!!!';
     } else {
-        return;
-    } 
+        return 'lose!!!';
+    };    
 }
-    // if (humanScore === computerScore) {
-    //     console.log('tie');
-    //     return 'tie!!!';
-    // } else if (humanScore > computerScore) {
-    //     console.log('win');
-    //     return 'win!!!';
-    // } else {
-    //     console.log('lose');
-    //     return 'lose!!!';
-    // };    
 
-playGame();
+let num = 0
+function test() {
+    if (num < 4) {
+        num = ++num;
+        console.log(num);
+        return test();
+    } else {
+        return 'fin';
+    }
+}
