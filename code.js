@@ -5,22 +5,8 @@ let roundTimer = 1;
 
 // this function generates a Computer choice
 function getComputerChoice() {
-    // this part generates a random number between 1 and 3
-    const minCeil = Math.ceil(1);
-    const maxFloor = Math.floor(4);
-    let randomNum = ( Math.floor(Math.random() * (maxFloor - minCeil) + minCeil) );
-
-    // this switch statement returns a computer choice depending on the generated random number
-    switch(randomNum) {
-        case 1:
-            return 'Rock';
-
-        case 2:
-            return 'Paper'; 
-
-        case 3:
-            return 'Scissors';
-    }
+    let option = ['Rock', 'Paper', 'Scissors'];
+    return option[Math.floor(Math.random() * option.length)];
 }
 
 // this function asks Human for a their choice
