@@ -38,6 +38,13 @@ function playRound(humanChoice, computerChoice) {
    }
 }
 
+const buttons = document.querySelector(".buttons");
+
+buttons.addEventListener("click", (event) => {
+    let target = event.target;
+    playRound(target, getComputerChoice());
+});
+
 // play 5 round of the game
 // function playGame() {
 //     if (roundTimer < 6) {
@@ -48,12 +55,12 @@ function playRound(humanChoice, computerChoice) {
 //         return playGame();
 //     } else if (humanScore === computerScore) {
 //         return 'Tie!';
-//     } else if (humanScore > computerScore) {
+//     } else if (humanScore > computerScorбe) {
 //         return 'You win the game!';
 //     } else {
 //         return 'You lose the game!';
 //     };    
 // }
 
-let game = playGame();
-console.log(game);
+// let game = playGame();
+// console.log(game);
