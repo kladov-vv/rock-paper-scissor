@@ -13,7 +13,9 @@ function getComputerChoice() {
     return options[Math.floor(Math.random() * options.length)];
 }
 
-// function displayResult() {}
+function updateScore() {
+    score.textContent = `You: ${humanScore} | Computer: ${computerScore}`
+}
 
 function playRound(humanChoice, computerChoice) {
     // check for a tie, than check if human win or lose
@@ -37,5 +39,6 @@ function playGame(event) {
     let choice = event.target.id;
     console.log(choice);
     let result = playRound(choice, getComputerChoice());
+    updateScore();
     console.log(result);
 }
