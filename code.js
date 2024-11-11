@@ -33,6 +33,3 @@ function playGame(event) {
     let result = playRound(choice, getComputerChoice());
     console.log(result);
 }
-
-// let game = playGame();
-// console.log(game);
