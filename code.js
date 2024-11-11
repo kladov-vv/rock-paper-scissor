@@ -1,4 +1,6 @@
 const buttons = document.querySelector('.buttons');
+const score = document.querySelector('.score');
+const roundResult = document.querySelector('.round-result');
 let computerScore = 0;
 let humanScore = 0;
 
