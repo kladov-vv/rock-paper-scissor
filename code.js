@@ -34,22 +34,5 @@ function playGame(event) {
     console.log(result);
 }
 
-// play 5 round of the game
-// function playGame() {
-//     if (roundTimer < 6) {
-//         console.log (`Round ${roundTimer}`);
-//         let roundResult = playRound( getHumanChoice(), getComputerChoice() );
-//         console.log(roundResult)
-//         roundTimer = ++roundTimer;
-//         return playGame();
-//     } else if (humanScore === computerScore) {
-//         return 'Tie!';
-//     } else if (humanScore > computerScore) {
-//         return 'You win the game!';
-//     } else {
-//         return 'You lose the game!';
-//     };    
-// }
-
 // let game = playGame();
 // console.log(game);
