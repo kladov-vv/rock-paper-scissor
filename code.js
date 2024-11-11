@@ -11,21 +11,22 @@ function getComputerChoice() {
     return options[Math.floor(Math.random() * options.length)];
 }
 
+function displayResult() {
+    
+}
+
 function playRound(humanChoice, computerChoice) {
     // check for a tie, than check if human win or lose
     if (humanChoice === computerChoice) {
-        return `Tie! Between ${computerChoice} and ${computerChoice}. 
-        Score: You: ${humanScore} - Computer: ${computerScore}`;
+        return `Tie! Between ${computerChoice} and ${computerChoice}.`;
    } else if ( (humanChoice === 'rock' && computerChoice === 'scissors') || 
    (humanChoice === 'paper' && computerChoice === 'rock') || 
    (humanChoice === 'scissors' && computerChoice === 'paper') ) {
         humanScore = ++humanScore
-        return `You win! ${humanChoice} beats ${computerChoice}! 
-        Score: You: ${humanScore} - Computer: ${computerScore}`;
+        return `You win! ${humanChoice} beats ${computerChoice}!`;
    } else {
         computerScore = ++computerScore
-        return `You lose! ${computerChoice} beats ${humanChoice}! 
-        Score: You: ${humanScore} - Computer: ${computerScore}`;
+        return `You lose! ${computerChoice} beats ${humanChoice}!`;
    }
 }
 
