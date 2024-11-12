@@ -1,10 +1,15 @@
 const buttons = document.querySelector('.buttons');
 const score = document.querySelector('.score');
 const roundResult = document.querySelector('.round-result');
+const playAgain = document.createElement('button');
 let computerScore = 0;
 let humanScore = 0;
 
 buttons.addEventListener('click', playGame);
+
+playAgain.textContent = 'PLAY AGAIN?';
+playAgain.classList.add('button');
+playAgain.setAttribute('id', 'again');
 
 function getComputerChoice() {
     let options = ['ROCK', 'PAPER', 'SCISSORS'];
@@ -37,6 +42,7 @@ function displayRoundResult(result) {
             message = 'You lose the game!'
         }
         gameOver();
+        console.log('!')
     } else {
         message = result;
     }
@@ -44,14 +50,25 @@ function displayRoundResult(result) {
 }
     
 function gameOver() {
-    buttons.removeEventListener('click', playGame);
+    // buttons.removeEventListener('click', playGame);
+    while (buttons.firstChild) {
+        buttons.removeChild(buttons.lastChild);
+    }
+    buttons.appendChild(playAgain);
+    // buttons display none
+    // add new div add new button
+    // button event listener to reload page
     // gameResult
 }
 
 function playGame(event) {
     // event.target.style.border = '5px solid black';
     let choice = event.target.id.toUpperCase();
-    let result = playRound(choice, getComputerChoice());
-    updateScore();
-    displayRoundResult(result);
+    if (choice === 'AGAIN') {
+        location.reload();
+    } else {
+        let result = playRound(choice, getComputerChoice());
+        updateScore();
+        displayRoundResult(result);
+    }
 }
