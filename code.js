@@ -7,7 +7,7 @@ let humanScore = 0;
 
 buttons.addEventListener('click', playGame);
 
-playAgain.textContent = 'PLAY AGAIN?';
+playAgain.textContent = 'PLAY AGAIN';
 playAgain.classList.add('button');
 playAgain.setAttribute('id', 'again');
 
@@ -42,7 +42,6 @@ function displayRoundResult(result) {
             message = 'You lose the game!'
         }
         gameOver();
-        console.log('!')
     } else {
         message = result;
     }
