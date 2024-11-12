@@ -15,15 +15,15 @@ function getComputerChoice() {
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         return `Tie! Between ${computerChoice} and ${computerChoice}.`;
-   } else if ( (humanChoice === 'rock' && computerChoice === 'scissors') || 
-   (humanChoice === 'paper' && computerChoice === 'rock') || 
-   (humanChoice === 'scissors' && computerChoice === 'paper') ) {
+    } else if ( (humanChoice === 'rock' && computerChoice === 'scissors') || 
+    (humanChoice === 'paper' && computerChoice === 'rock') || 
+    (humanChoice === 'scissors' && computerChoice === 'paper') ) {
         humanScore = ++humanScore
         return `You win! ${humanChoice} beats ${computerChoice}!`;
-   } else {
+    } else {
         computerScore = ++computerScore
         return `You lose! ${computerChoice} beats ${humanChoice}!`;
-   }
+    }
 }
 
 function updateScore() {
