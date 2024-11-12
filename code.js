@@ -1,7 +1,6 @@
 const buttons = document.querySelector('.buttons');
 const score = document.querySelector('.score');
 const roundResult = document.querySelector('.round-result');
-// const gameResult = document.createElement('div');
 let computerScore = 0;
 let humanScore = 0;
 
@@ -44,17 +43,15 @@ function displayRoundResult(result) {
     roundResult.textContent = message;
 }
     
-
 function gameOver() {
     buttons.removeEventListener('click', playGame);
     // gameResult
 }
 
 function playGame(event) {
-    let choice = event.target.id;
-    choice = choice.toUpperCase();
+    // event.target.style.border = '5px solid black';
+    let choice = event.target.id.toUpperCase();
     let result = playRound(choice, getComputerChoice());
     updateScore();
     displayRoundResult(result);
-    // console.log(result);
 }
