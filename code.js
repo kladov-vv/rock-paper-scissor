@@ -49,19 +49,13 @@ function displayRoundResult(result) {
 }
     
 function gameOver() {
-    // buttons.removeEventListener('click', playGame);
     while (buttons.firstChild) {
         buttons.removeChild(buttons.lastChild);
     }
     buttons.appendChild(playAgain);
-    // buttons display none
-    // add new div add new button
-    // button event listener to reload page
-    // gameResult
 }
 
 function playGame(event) {
-    // event.target.style.border = '5px solid black';
     let choice = event.target.id.toUpperCase();
     if (choice === 'AGAIN') {
         location.reload();
