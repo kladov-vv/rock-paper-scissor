@@ -1,0 +1,28 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    background-color: lightgrey;
+}
+.header {
+    font-size: 3em;
+}
+
+.game {
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+    margin: 1.25em 0;
+}
+
+.button {
+    font-size: 1.25em;
+    background-color: white;
+    padding: 0.35em;
+    border-radius: 0.35em;
+    width: 8em;
+}
