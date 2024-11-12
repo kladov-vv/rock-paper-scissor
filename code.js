@@ -13,15 +13,15 @@ function getComputerChoice() {
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        return `Tie! Between ${computerChoice} and ${computerChoice}.`;
+        return `Tie! You both choose ${humanChoice}!`;
     } else if ( (humanChoice === 'ROCK' && computerChoice === 'SCISSORS') || 
     (humanChoice === 'PAPER' && computerChoice === 'ROCK') || 
     (humanChoice === 'SCISSORS' && computerChoice === 'PAPER') ) {
         humanScore = ++humanScore
-        return `You win! ${humanChoice} beats ${computerChoice}!`;
+        return `You win! Your ${humanChoice} beats ${computerChoice}!`;
     } else {
         computerScore = ++computerScore
-        return `You lose! ${computerChoice} beats ${humanChoice}!`;
+        return `You lose! Your ${humanChoice} beaten by ${computerChoice}!`;
     }
 }
 
